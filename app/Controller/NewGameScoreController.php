@@ -2,15 +2,18 @@
 // app/Controller/NewgamescoreController.php
 session_start();
 
-class NewgamescoreController extends AppController {
+class NewGameScoreController extends AppController {
 	
 	public function index(){
-		// 新規ゲーム登録ページ
+		// 新規ゲームスコア登録ページ
 		// 登録済みゲームタイトルを取得
 		// チェックボックスで参加メンバーを選択
+		include '../Model/MemberSearchAll.php';
+
 		$_SESSION['errorFlag_NewScore'] = false;
 		$_SESSION['isRegistFlag_NewScore'] = false;
 		$_SESSION['registResult_NewScore'] = false;
+		$_SESSION['getAllMember'] = false;
 
 		$todayYear = date('Y');
 		$displayYear[0] = $todayYear;
@@ -27,6 +30,8 @@ class NewgamescoreController extends AppController {
 		$this->set('displayYear',$displayYear);
 		$this->set('todayMonth',$todayMonth);
 		$this->set('todayDay',$todayDay);
+
+		$getMemberNameAction = new MemberSearchAll();
 
 		$this -> render('index');
 	}

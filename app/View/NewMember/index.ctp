@@ -9,7 +9,7 @@
 <?php } else {?>
 	<p class="padding5"></p>
 <?php } ?>
-<form method="post" action="/ScoreBoard/memberadd/memberAdd/">
+<form method="post" action="/ScoreBoard/NewMember/memberAdd/">
 	<p class="mb2">
 		<h3>名前</h3>
 		<input type ="text" name="name" value="" size="10" />

@@ -72,15 +72,15 @@
 	</p>
 	<p class="padding11"></p>
 				<input type ="checkbox" name="member01" value="" />
-				<h3>Y.Nakamura</h3>
+				<h3>Member01</h3>
 				<input type ="checkbox" name="member02" value="" />
-				<h3>塚本　憲明</h3>
+				<h3>Member02</h3>
 				<input type ="checkbox" name="member03" value="" />
-				<h3>八屋　亮二</h3>
+				<h3>Member03</h3>
 				<input type ="checkbox" name="member04" value="" />
-				<h3>谷　大介</h3>
+				<h3>Member04</h3>
 				<input type ="checkbox" name="member05" value="" />
-				<h3>小塙　大征</h3>
+				<h3>Member05</h3>
 		</table>
 	<p class="padding11"></p>
 	<p class="mb2">

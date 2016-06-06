@@ -1,8 +1,9 @@
 <!-- /app/Model/MemberSearshByName.php-->
 <?php
 class MemberSearchAll{
-	
 	public function MemberSearchAll(){
+		$getName = array();
+
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
@@ -11,10 +12,9 @@ class MemberSearchAll{
 		$i = 1;
 		while($row = mysqli_fetch_array($result)){
 			$getName[$i] = $row;
+			$_SESSION['getAllMember'][$i] = $getName[$i]['name'];
 			$i++;
 		}
-		
-		var_dump($getName);
 		
 		if($getName === null){
 //			$return = 0;

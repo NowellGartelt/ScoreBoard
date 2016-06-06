@@ -7,23 +7,23 @@
 		<th>スコア</th>
 	</tr>
 	<tr>
-		<td><h3>Y.Nakamura</h3></td>
+		<td><h3>Member01</h3></td>
 		<td><input type ="text" name="score01" value="" size="3" /></td>
 	</tr>	
 	<tr>
-		<td><h3>塚本　憲明</h3></td>
+		<td><h3>Member02</h3></td>
 		<td><input type ="text" name="score02" value="" size="3" /></td>
 	</tr>	
 	<tr>
-		<td><h3>八屋　亮二</h3></td>
+		<td><h3>Member03</h3></td>
 		<td><input type ="text" name="score03" value="" size="3" /></td>
 	</tr>	
 	<tr>
-		<td><h3>谷　大介</h3></td>
+		<td><h3>Member04</h3></td>
 		<td><input type ="text" name="score04" value="" size="3" /></td>
 	</tr>	
 	<tr>
-		<td><h3>小塙　大征</h3></td>
+		<td><h3>Member05</h3></td>
 		<td><input type ="text" name="score05" value="" size="3" /></td>
 	</tr>	
 </table>
