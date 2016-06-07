@@ -1,4 +1,4 @@
-<!-- app/View/Memneradd/index.ctp -->
+<!-- app/View/NewMemner/index.ctp -->
 <p class="padding11"></p>
 <?php if($_SESSION['errorFlag'] == true){ ?>
 	<font size="4" color="#ff0000">名前もしくはパスワードが未入力です。</font>
@@ -9,7 +9,7 @@
 <?php } else {?>
 	<p class="padding5"></p>
 <?php } ?>
-<form method="post" action="/ScoreBoard/NewMember/memberAdd/">
+<form method="post" action="/ScoreBoard/NewMember/MemberRegist/">
 	<p class="mb2">
 		<h3>名前</h3>
 		<input type ="text" name="name" value="" size="10" />

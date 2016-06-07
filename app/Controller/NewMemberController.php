@@ -14,9 +14,9 @@ class NewMemberController extends AppController {
 		$this -> render('index');
 	}
 	
-	public function memberAdd(){
-		include '../Model/MemberSearchByName.php';
-		include '../Model/MemberAdd.php';
+	public function MemberRegist(){
+		include '../Model/searchMemberByName.php';
+		include '../Model/registMember.php';
 
 		$_SESSION['errorFlag'] = false;
 		$_SESSION['isRegistFlag'] = false;
@@ -33,13 +33,13 @@ class NewMemberController extends AppController {
 			$_SESSION['errorFlag'] = true;
 			
 		} else {
-			$isRegist = new MemberSearchByName($name);
+			$isRegist = new searchMemberByName($name);
 
 			if($isRegist == false){
 				$_SESSION['isRegistFlag'] = true;
 				
 			} else {
-				$memberAdd = new MemberAdd($name, $password, $admin);
+				$memberRegistAction = new registMember($name, $password, $admin);
 				
 			}
 		}

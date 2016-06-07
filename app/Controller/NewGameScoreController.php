@@ -1,14 +1,13 @@
+<!-- app/Controller/NewGameScoreController.php -->
 <?php 
-// app/Controller/NewgamescoreController.php
 session_start();
 
 class NewGameScoreController extends AppController {
-	
 	public function index(){
 		// 新規ゲームスコア登録ページ
 		// 登録済みゲームタイトルを取得
 		// チェックボックスで参加メンバーを選択
-		include '../Model/MemberSearchAll.php';
+		include '../Model/searchMemberAll.php';
 
 		$_SESSION['errorFlag_NewScore'] = false;
 		$_SESSION['isRegistFlag_NewScore'] = false;
@@ -31,7 +30,7 @@ class NewGameScoreController extends AppController {
 		$this->set('todayMonth',$todayMonth);
 		$this->set('todayDay',$todayDay);
 
-		$getMemberNameAction = new MemberSearchAll();
+		$getMemberNameAction = new searchMemberAll();
 
 		$this -> render('index');
 	}
@@ -57,8 +56,8 @@ class NewGameScoreController extends AppController {
 
 	public function ScoreRegist(){
 		// 参加メンバーを選択
-		include '../Model/scoreRegist.php';
-		include '../Model/gameRegist.php';
+		include '../Model/registScore.php';
+		include '../Model/registGame.php';
 
 		$gameId = $_SESSION['gameid'];
 		$gameTitle = $_SESSION['gametitle_NewScore'];
@@ -84,14 +83,14 @@ class NewGameScoreController extends AppController {
 		$gameEntry = $row[0];
 		$registDate = date("YmdHis");
 		
-		$RegistGame = new gameRegist($gameId, $gameTitleId, $gameDate, $gameNo, $gameEntry, $registDate);
+		$registGame = new registGame($gameId, $gameTitleId, $gameDate, $gameNo, $gameEntry, $registDate);
 
 		for($countMember = 1;$countMember <= $gameEntry; $countMember++){
 			$Member = sprintf('%02d', $countMember);
 			$score['score'][$countMember] = isset($_POST['score'.$Member])	? $_POST['score'.$Member]	: null;
 			$score['gamescoreid'][$countMember] = $_SESSION['gameid'].$Member;
 			
-			$RegistScore[$countMember] = new scoreRegist($score['gamescoreid'][$countMember], $gameId, $Member, $score['score'][$countMember], $registDate);
+			$registScore[$countMember] = new registScore($score['gamescoreid'][$countMember], $gameId, $Member, $score['score'][$countMember], $registDate);
 			$_SESSION['registResult_NewScore'] = true;
 		}
 

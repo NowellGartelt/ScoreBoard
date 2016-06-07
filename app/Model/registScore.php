@@ -1,24 +1,22 @@
-<!-- /app/Model/GameRegist.php-->
+<!-- /app/Model/registScore.php-->
 <?php
-class GameRegist{
-	public function	GameRegist($gameId, $gameTitleId, $gameDate, $gameNo, $gameEntry, $registDate){
+class registScore{
+	public function	registScore($gameScoreId, $gameId, $userId, $score, $registDate){
+		$this->gameScoreId = $gameScoreId;
 		$this->gameId = $gameId;
-		$this->gameTitleId = $gameTitleId;
-		$this->gameDate = $gameDate;
-		$this->gameNo = $gameNo;
-		$this->gameEntry = $gameEntry;
+		$this->userId = $userId;
+		$this->score = $score;
 		$this->registDate = $registDate;
 		
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
-		$queryRegist = "insert into gametable (gameId, gameTitleId, gameDate, gameNo, gameEntry, registDate, updateDate) 
+		$queryRegist = "insert into scoretable (scoreId, gameId, userId, score, registDate, updateDate) 
 				values (
+					'$gameScoreId',
 					'$gameId',
-					'$gameTitleId',
-					'$gameDate',
-					'$gameNo',
-					'$gameEntry',
+					'$userId',
+					'$score',
 					'$registDate',
 					null
 				)";
@@ -33,6 +31,6 @@ class GameRegist{
 		return $resultRegist;
 		
 		mysqli_close($link);
-	}	
+	}
 }
 ?>

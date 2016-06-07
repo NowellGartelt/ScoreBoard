@@ -1,15 +1,15 @@
-<!-- /app/Model/GameSearshByName.php-->
+<!-- /app/Model/searshGameByName.php-->
 <?php
-class GameSearchByName{
-	private $gamename = '';
+class searchGameByName{
+	private $gameName = '';
 	
-	public function GameSearchByName($gamename){
-		$this->gamename = $gamename;
+	public function searchGameByName($gameName){
+		$this->gameName = $gameName;
 
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
-		$query = "select gamename from gametitletable where gamename = '$gamename'";
+		$query = "select gamename from gametitletable where gamename = '$gameName'";
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_array($result);
 		$getGameName = $row[0];

@@ -1,7 +1,7 @@
 <!-- /app/Model/MemberSearshByName.php-->
 <?php
-class MemberSearchAll{
-	public function MemberSearchAll(){
+class searchMemberAll{
+	public function searchMemberAll(){
 		$getName = array();
 
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
@@ -17,15 +17,10 @@ class MemberSearchAll{
 		}
 		
 		if($getName === null){
-//			$return = 0;
 			return true;
 		} else {
-//			$return = 1;
 			return false;
 		}
-		
-//		return 0;
-		
 		mysqli_close($link);
 	}
 }

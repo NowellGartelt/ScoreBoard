@@ -9,14 +9,14 @@
 <?php } else {?>
 	<p class="padding5"></p>
 <?php } ?>
-<form method="post" action="/ScoreBoard/newgame/NewGameRegist/">
+<form method="post" action="/ScoreBoard/NewGame/NewGameRegist/">
 	<p class="mb2">
 		<h3>ゲームタイトル</h3>
-		<input type ="text" name="gamename" value="" size="10" />
+		<input type ="text" name="gameName" value="" size="10" />
 	</p>
 	<p class="mb2">
 		<h3>メモ</h3>
-		<input type ="textarea" name="gamememo" value="" size="140" />
+		<input type ="textarea" name="gameMemo" value="" size="140" />
 	</p>
 	<p class="padding11"></p>
 	<p class="mb2">

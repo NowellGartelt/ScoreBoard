@@ -1,7 +1,7 @@
-<!-- /app/Model/MemberAdd.php-->
+<!-- /app/Model/registMember.php-->
 <?php
-class MemberAdd{
-	public function	MemberAdd($username, $password, $admin){
+class registMember{
+	public function	registMember($username, $password, $admin){
 		$this->username = $username;
 		$this->password = $password;
 		$this->admin = $admin;

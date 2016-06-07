@@ -1,10 +1,9 @@
-<!-- /app/Model/MemberSearshByName.php-->
+<!-- /app/Model/searshMemberByName.php-->
 <?php
-class MemberSearchByName{
+class searchMemberByName{
 	private $username = '';
 	
-//	public function __construct($username){
-	public function MemberSearchByName($username){
+	public function searchMemberByName($username){
 		$this->username = $username;
 
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
@@ -15,18 +14,11 @@ class MemberSearchByName{
 		$row = mysqli_fetch_array($result);
 		$getName = $row[0];
 		
-//		var_dump($getName);
-		
 		if($getName === null){
-//			$return = 0;
 			return true;
 		} else {
-//			$return = 1;
 			return false;
 		}
-		
-//		return 0;
-		
 		mysqli_close($link);
 	}
 }
