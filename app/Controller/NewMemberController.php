@@ -1,6 +1,6 @@
 <?php 
 // app/Controller/NewMemberController.php
-session_start();
+// session_start();
 
 class NewMemberController extends AppController {
 	

@@ -1,6 +1,10 @@
 <!-- app/Controller/NewGameScoreController.php -->
 <?php 
+<<<<<<< Updated upstream
 session_start();
+=======
+// session_start();
+>>>>>>> Stashed changes
 
 class NewGameScoreController extends AppController {
 	public function index(){
@@ -8,11 +12,21 @@ class NewGameScoreController extends AppController {
 		// 登録済みゲームタイトルを取得
 		// チェックボックスで参加メンバーを選択
 		include '../Model/searchMemberAll.php';
+<<<<<<< Updated upstream
+=======
+		include '../Model/searchGameAll.php';
+>>>>>>> Stashed changes
 
 		$_SESSION['errorFlag_NewScore'] = false;
 		$_SESSION['isRegistFlag_NewScore'] = false;
 		$_SESSION['registResult_NewScore'] = false;
 		$_SESSION['getAllMember'] = false;
+<<<<<<< Updated upstream
+=======
+
+		$member = array();
+		$no = 1;
+>>>>>>> Stashed changes
 
 		$todayYear = date('Y');
 		$displayYear[0] = $todayYear;
@@ -30,12 +44,26 @@ class NewGameScoreController extends AppController {
 		$this->set('todayMonth',$todayMonth);
 		$this->set('todayDay',$todayDay);
 
+<<<<<<< Updated upstream
 		$getMemberNameAction = new searchMemberAll();
+=======
+		$getGameTitleAction = new searchGameAll();
+		$gameTitle = $_SESSION['getAllGameTitle'];
+
+		$this->set('gameTitle',$gameTitle);
+
+		$getMemberNameAction = new searchMemberAll();
+		$member = $_SESSION['getAllMember'];
+
+		$this->set('member',$member);
+>>>>>>> Stashed changes
 
 		$this -> render('index');
 	}
 	
 	public function MemberScoreRegist(){
+		include '../Model/searchMemberByID.php';
+
 		// 参加メンバーを選択
 		// $_SESSION['errorFlag_NewScore'] = false;
 		$_SESSION['isRegistFlag_NewScore'] = false;
@@ -48,10 +76,70 @@ class NewGameScoreController extends AppController {
 		$_SESSION['gameno_NewScore'] = $_POST['gameno'];
 		$_SESSION['gametitle_NewScore'] = $_POST['gametitle'];
 
-		$gameid = $_SESSION['year_NewScore'].$_SESSION['month_NewScore'].$_SESSION['day_NewScore'].$_SESSION['gameno_NewScore'];
-		$_SESSION['gameid'] = $gameid;
+		$member = isset($_POST['member'])	? $_POST['member']	: null;
 
-		$this -> render('scoreregist');
+		if ($member == null) {
+			include '../Model/searchMemberAll.php';
+			include '../Model/searchGameAll.php';
+
+			 $_SESSION['errorFlag_NewScore'] = true;
+			$_SESSION['isRegistFlag_NewScore'] = false;
+			$_SESSION['registResult_NewScore'] = false;
+			$_SESSION['getAllMember'] = false;
+
+			$member = array();
+			$no = 1;
+
+			$todayYear = date('Y');
+			$displayYear[0] = $todayYear;
+
+			for($yearCount = 1; $yearCount <= 9; $yearCount++){
+				$todayYear = $todayYear + 1;
+				$displayYear[$yearCount] = $todayYear;
+
+			}
+
+			$todayMonth = date('m');
+			$todayDay = date('d');
+
+			$this->set('displayYear',$displayYear);
+			$this->set('todayMonth',$todayMonth);
+			$this->set('todayDay',$todayDay);
+
+			$getGameTitleAction = new searchGameAll();
+			$gameTitle = $_SESSION['getAllGameTitle'];
+
+			$this->set('gameTitle',$gameTitle);
+
+			$getMemberNameAction = new searchMemberAll();
+			$member = $_SESSION['getAllMember'];
+
+			$this->set('member',$member);
+
+			$this -> render('index');
+
+		} else {
+			$countMember = 0;
+			$entryMember = array();
+			$entryMemberName = array();
+
+			foreach ($_POST['member'] as $memberNo) {
+				$entryMember[$countMember] = $_POST['member'][$countMember];
+				$getMemberNameAction = new searchMemberByID($entryMember[$countMember]);
+				$entryMemberName[$countMember] = $_SESSION['getMemberName'];
+
+				$countMember++;
+			}
+
+			$gameid = $_SESSION['year_NewScore'].$_SESSION['month_NewScore'].$_SESSION['day_NewScore'].$_SESSION['gameno_NewScore'];
+			$_SESSION['gameid'] = $gameid;
+
+			$this->set('entryMember',$entryMember);
+			$this->set('entryMemberName',$entryMemberName);
+
+			$this -> render('score_input');
+
+		}
 	}
 
 	public function ScoreRegist(){

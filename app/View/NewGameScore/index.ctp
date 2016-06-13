@@ -9,7 +9,7 @@
 <?php } else {?>
 	<p class="padding11"></p>
 <?php } ?>
-<form method="post" action="/ScoreBoard/Newgamescore/MemberScoreRegist/">
+<form method="post" action="/ScoreBoard/NewGameScore/MemberScoreRegist/">
 	<p class="mb2">
 		<h3>日付</h3>
 		<select name="year" size="1">
@@ -66,11 +66,13 @@
 	<p class="mb2">
 		<h3>ゲームタイトル</h3>
 		<select name="gametitle" size="1">
-			<option value="ラブライブ！ボードゲーム ファン獲得スクールアイドル大作戦！">ラブライブ！ボードゲーム ファン獲得スクールアイドル大作戦！</option>
-			<option value="ラブライブ！スクールアイドルコレクション">ラブライブ！スクールアイドルコレクション</option>
+		<?php foreach($gameTitle as $name){ ?>
+			<option value="<?php echo $name; ?>"><?php echo $name; ?></option>
+		<?php } ?>
 		</select>
 	</p>
 	<p class="padding11"></p>
+<<<<<<< Updated upstream
 				<input type ="checkbox" name="member01" value="" />
 				<h3>Member01</h3>
 				<input type ="checkbox" name="member02" value="" />
@@ -82,6 +84,15 @@
 				<input type ="checkbox" name="member05" value="" />
 				<h3>Member05</h3>
 		</table>
+=======
+		<?php $countMember = 1; ?>
+		<?php foreach($member as $name){
+				// $memberNo = sprintf('%02d', $countMember); ?>
+				<input type="checkbox" id="member<?php echo $countMember; ?>" name="member[]" value="<?php echo $countMember; ?>" />
+				<h3><?php echo $name; ?></h3>
+		<?php 	$countMember++ ?>
+		<?php } ?>
+>>>>>>> Stashed changes
 	<p class="padding11"></p>
 	<p class="mb2">
 		<input type="submit" value="次へ" />
