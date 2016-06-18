@@ -1,26 +1,20 @@
 <?php 
 // app/Controller/NewMemberController.php
-// session_start();
-
 class NewMemberController extends AppController {
 	
 	public function index(){
 		// メンバー追加ページ
 		// メンバー情報を入力する
-		$_SESSION['errorFlag'] = false;
-		$_SESSION['isRegistFlag'] = false;
-		$_SESSION['registResult'] = false;
+		session_start();
 
 		$this -> render('index');
 	}
 	
 	public function MemberRegist(){
+		session_start();
+
 		include '../Model/searchMemberByName.php';
 		include '../Model/registMember.php';
-
-		$_SESSION['errorFlag'] = false;
-		$_SESSION['isRegistFlag'] = false;
-		$_SESSION['registResult'] = false;
 		
 		$name = isset($_POST['name'])			? $_POST['name']		: null;
 		$password = isset($_POST['password'])	? $_POST['password']	: null;

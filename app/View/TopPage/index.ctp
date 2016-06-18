@@ -37,9 +37,13 @@
 		<td><?php 
 			echo $_SESSION['gameTitle'][$i];
 		?></td> 
-<?php for($j = 1; $j <= $_SESSION['entry']; $j++){ ?>
+<?php 	for($j = 1; $j <= $_SESSION['entry']; $j++){
+			if(!$_SESSION['recentlyScore'][$i][$j]){ ?>
+		<td><?php  echo "0"; ?></td>
+<?php		} else { ?>
 		<td><?php  echo $_SESSION['recentlyScore'][$i][$j]; ?></td>
-<?php } ?>
+<?php		}
+ 	  	} ?>
 	</tr>
 <?php } ?>
 </table>

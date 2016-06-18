@@ -1,17 +1,17 @@
 <?php 
 // app/Controller/ScoreboardController.php
-session_start();
-
 class TopPageController extends AppController {
 	
 	public function index(){
+		session_start();
+
 		include '../Model/searchScoreByDay.php';
 
-		session_destroy();
 		$_SESSION['entry'] = null;
 		$_SESSION['entryMember'] = null;
-//		$_SESSION['entryMember']['5'] = null;
-//		$_SESSION['recentlyScore']['0']['6'] = null;
+		$_SESSION['errorFlag'] = null;
+		$_SESSION['isRegistFlag'] = null;
+		$_SESSION['registResult'] = null;
 		
 		$getEntryMember = array();
 		$getEntry = 0;
@@ -32,9 +32,10 @@ class TopPageController extends AppController {
 		$getGameCount = $_SESSION['gameCount'];
 		for($i = 1; $i <= $getGameCount; $i++){
 			for($j = 1; $j <= $getEntry; $j++){
-				$getScore[$i][$j] = $_SESSION['recentlyScore'][$i][$j];
+//				$getScore[$i][$j] = $_SESSION['recentlyScore'][$i][$j];
+				$getScore[$i][$j] = isset($_SESSION['recentlyScore'][$i][$j])	? $_SESSION['recentlyScore'][$i][$j] :null;
 				// $this->set('score'[$i][$j],$getScore[$i][$j]);
-				// var_dump($getScore[$i][$j]);
+//				var_dump($getScore[$i][$j]);
 				
 			}
 		}

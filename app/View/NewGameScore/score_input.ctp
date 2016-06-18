@@ -1,6 +1,6 @@
 <!-- app/View/Newgame/index.ctp -->
 <p class="padding15"></p>
-<form method="post" action="/ScoreBoard/Newgamescore/ScoreRegist/">
+<form method="post" action="/ScoreBoard/NewGameScore/ScoreRegist/">
 <table>
 	<tr>
 		<th>メンバー名</th>
@@ -10,8 +10,6 @@
 <?php foreach ($entryMemberName as $memberName) { ?>
 <?php 	$id = sprintf('%02d', $entryMember[$countMember]); ?>
 	<tr>
-<<<<<<< Updated upstream:app/View/NewGameScore/ScoreRegist.ctp
-=======
 		<td><h3><?php echo $entryMemberName[$countMember]; ?></h3></td>
 		<td><input type ="text" name="score<?php echo $id; ?>" value="" size="3" /></td>
 	</tr>
@@ -20,7 +18,6 @@
 
 <!--
 	<tr>
->>>>>>> Stashed changes:app/View/NewGameScore/score_input.ctp
 		<td><h3>Member01</h3></td>
 		<td><input type ="text" name="score01" value="" size="3" /></td>
 	</tr>	

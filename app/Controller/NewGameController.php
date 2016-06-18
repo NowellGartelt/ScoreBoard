@@ -1,26 +1,28 @@
 <?php 
 // app/Controller/NewGameController.php
-session_start();
-
 class NewGameController extends AppController {
 	
 	public function index(){
 		// 新規ゲーム登録ページ
 		// ゲームタイトル、メモを入力
-		$_SESSION['errorFlag_NewGame'] = false;
-		$_SESSION['isRegistFlag_NewGame'] = false;
-		$_SESSION['registResult_NewGame'] = false;
+		session_start();
+
+		$_SESSION['errorFlag'] = false;
+		$_SESSION['isRegistFlag'] = false;
+		$_SESSION['registResult'] = false;
 
 		$this -> render('index');
 	}
 	
 	public function NewGameRegist(){
+		session_start();
+
 		include '../Model/searchGameByName.php';
 		include '../Model/registGameTitle.php';
 
-		$_SESSION['errorFlag_NewGame'] = false;
-		$_SESSION['isRegistFlag_NewGame'] = false;
-		$_SESSION['registResult_NewGame'] = false;
+		$_SESSION['errorFlag'] = false;
+		$_SESSION['isRegistFlag'] = false;
+		$_SESSION['registResult'] = false;
 
 		$gameName = isset($_POST['gameName'])	? $_POST['gameName']	: null;
 		$gameMemo = isset($_POST['gameMemo'])	? $_POST['gameMemo']	: null;
@@ -29,16 +31,16 @@ class NewGameController extends AppController {
 		$gameMemo = htmlspecialchars($gameMemo, ENT_QUOTES, 'UTF-8');
 		
 		if($gameName == null){
-			$_SESSION['errorFlag_NewGame'] = true;
+			$_SESSION['errorFlag'] = true;
 		} else {
 			$isRegist = new searchGameByName($gameName);
 
 			if($isRegist == false){
-				$_SESSION['isRegistFlag_NewGame'] = true;
+				$_SESSION['isRegistFlag'] = true;
 				
 			} else {
 				$gameRegistAction = new registGameTitle($gameName, $gameMemo);
-				
+				$_SESSION['registResult'] = true;
 			}
 		}
 		$this -> render('index');

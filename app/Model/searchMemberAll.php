@@ -15,13 +15,8 @@ class searchMemberAll{
 			$_SESSION['getAllMember'][$i] = $getName[$i]['name'];
 			$i++;
 		}
-<<<<<<< Updated upstream:app/Model/searchMemberAll.php
-		
-		if($getName === null){
-=======
 
 		if($getName == null){
->>>>>>> Stashed changes:app/Model/searchMemberAll.php
 			return true;
 		} else {
 			return false;

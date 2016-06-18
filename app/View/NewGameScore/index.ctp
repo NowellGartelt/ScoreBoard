@@ -1,10 +1,10 @@
 <!-- app/View/Newgame/index.ctp -->
 <p class="padding11"></p>
-<?php if($_SESSION['errorFlag_NewScore'] == true){ ?>
+<?php if($_SESSION['errorFlag'] == true){ ?>
 	<font size="4" color="#ff0000">メンバーが1人も選択されていません。</font>
-<?php } elseif($_SESSION['isRegistFlag_NewScore'] == true){ ?>
+<?php } elseif($_SESSION['isRegistFlag'] == true){ ?>
 	<font size="4" color="#ff0000">入力されたスコアは登録済みです。</font>
-<?php } elseif($_SESSION['registResult_NewScore'] == true){ ?>
+<?php } elseif($_SESSION['registResult'] == true){ ?>
 	<font size="4" color="#ff0000">登録しました。</font>
 <?php } else {?>
 	<p class="padding11"></p>
@@ -72,19 +72,6 @@
 		</select>
 	</p>
 	<p class="padding11"></p>
-<<<<<<< Updated upstream
-				<input type ="checkbox" name="member01" value="" />
-				<h3>Member01</h3>
-				<input type ="checkbox" name="member02" value="" />
-				<h3>Member02</h3>
-				<input type ="checkbox" name="member03" value="" />
-				<h3>Member03</h3>
-				<input type ="checkbox" name="member04" value="" />
-				<h3>Member04</h3>
-				<input type ="checkbox" name="member05" value="" />
-				<h3>Member05</h3>
-		</table>
-=======
 		<?php $countMember = 1; ?>
 		<?php foreach($member as $name){
 				// $memberNo = sprintf('%02d', $countMember); ?>
@@ -92,7 +79,6 @@
 				<h3><?php echo $name; ?></h3>
 		<?php 	$countMember++ ?>
 		<?php } ?>
->>>>>>> Stashed changes
 	<p class="padding11"></p>
 	<p class="mb2">
 		<input type="submit" value="次へ" />

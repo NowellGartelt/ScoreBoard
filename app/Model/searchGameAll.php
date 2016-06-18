@@ -7,7 +7,7 @@ class searchGameAll{
 		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
-		$query = "select gamename from gametitletable";
+		$query = "select gamename from gametitletable order by gametitleid";
 		$result = mysqli_query($link, $query);
 		$i = 1;
 		while($row = mysqli_fetch_array($result)){
