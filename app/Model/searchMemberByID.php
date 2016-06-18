@@ -6,7 +6,7 @@ class searchMemberByID{
 	public function searchMemberByID($memberID){
 		$this->memberID = $memberID;
 
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$query = "select name from usertable where userid = '$memberID'";

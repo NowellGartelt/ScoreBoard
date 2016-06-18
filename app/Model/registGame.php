@@ -9,7 +9,7 @@ class registGame{
 		$this->gameEntry = $gameEntry;
 		$this->registDate = $registDate;
 		
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$queryRegist = "insert into gametable (gameId, gameTitleId, gameDate, gameNo, gameEntry, registDate, updateDate) 

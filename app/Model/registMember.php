@@ -6,7 +6,7 @@ class registMember{
 		$this->password = $password;
 		$this->admin = $admin;
 
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$query_getId = "select MAX(userid) from usertable";

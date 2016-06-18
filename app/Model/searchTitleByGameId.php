@@ -4,7 +4,7 @@ class searchTitleByGameId{
 	public function searchTitleByGameId($gameId){
 		$this->gameId = $gameId;
 		
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$query = "select gameTitleId from gametable where gameId = '$gameId'";

@@ -5,7 +5,7 @@ class registGameTitle{
 		$this->gameName = $gameName;
 		$this->gameMemo = $gameMemo;
 		
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$queryGetId = "select MAX(gametitleid) from gametitletable";

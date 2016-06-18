@@ -9,7 +9,7 @@ class searchScoreByDay{
 		$getName = array();
 		$getEntryMember = "";
 
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$query = "select MAX(gameDate) from gametable";
