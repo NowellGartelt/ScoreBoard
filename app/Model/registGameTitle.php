@@ -4,10 +4,9 @@ class registGameTitle{
 	public function	registGameTitle($gameName, $gameMemo){
 		$this->gameName = $gameName;
 		$this->gameMemo = $gameMemo;
-		
-		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
-		mysqli_set_charset($link, 'utf8');
-		
+
+		include '../Model/databaseConnect.php';
+
 		$queryGetId = "select MAX(gametitleid) from gametitletable";
 		$resultGetId = mysqli_query($link, $queryGetId);
 		$row = mysqli_fetch_array($resultGetId);

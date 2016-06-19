@@ -6,9 +6,8 @@ class searchGameByName{
 	public function searchGameByName($gameName){
 		$this->gameName = $gameName;
 
-		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
-		mysqli_set_charset($link, 'utf8');
-		
+		include '../Model/databaseConnect.php';
+
 		$query = "select gamename from gametitletable where gamename = '$gameName'";
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_array($result);

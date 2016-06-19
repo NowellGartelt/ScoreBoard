@@ -2,6 +2,8 @@
 <?php
 class searchScoreByDay{
 	public function searchScoreByDay(){
+		include '../Model/databaseConnect.php';
+
 		include '../Model/searchTitleByGameId.php';
 		include '../Model/searchGameByGameId.php';
 		
@@ -9,9 +11,6 @@ class searchScoreByDay{
 		$getName = array();
 		$getEntryMember = "";
 
-		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
-		mysqli_set_charset($link, 'utf8');
-		
 		$query = "select MAX(gameDate) from gametable";
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_array($result);

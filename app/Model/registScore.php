@@ -8,9 +8,8 @@ class registScore{
 		$this->score = $score;
 		$this->registDate = $registDate;
 		
-		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
-		mysqli_set_charset($link, 'utf8');
-		
+		include '../Model/databaseConnect.php';
+
 		$queryRegist = "insert into scoretable (scoreId, gameId, userId, score, registDate, updateDate) 
 				values (
 					'$gameScoreId',
