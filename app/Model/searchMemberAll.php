@@ -4,7 +4,7 @@ class searchMemberAll{
 	public function searchMemberAll(){
 		$getName = array();
 
-		$link = mysqli_connect('localhost','root','axcel696','ScoreBoard');
+		$link = mysqli_connect('localhost','iinchou','meganekko','ScoreBoard');
 		mysqli_set_charset($link, 'utf8');
 		
 		$query = "select name from usertable order by userid";
