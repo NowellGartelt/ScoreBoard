@@ -1,5 +1,5 @@
 <?php 
-// app/Controller/getInputScoreInfo.php
+// app/Controller/tools/getInputScoreInfo.php
 class getInputScoreInfo{
 	public function getInputScoreInfo(){
 		include '../Model/searchMemberAll.php';

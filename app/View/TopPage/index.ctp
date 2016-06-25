@@ -1,23 +1,48 @@
 <!-- app/View/Scoreboards/index.ctp -->
 <p class="padding11"></p>
-<?php echo $this->Html->link('ゲームを登録する','/NewGame'); ?>
-<?php echo " "; ?>
+<div style="display:inline-flex">
+	<form method="post" action="/ScoreBoard/NewGame">
+		<p class="mb2">
+			<input type="submit" value="ゲームを登録する" />
+		</p>
+	</form>
 <!--
-<?php echo $this->Html->link('ゲームを見る','/GameReference'); ?>
-<?php echo " "; ?>
+	<form method="post" action="/GameReference">
+		<p class="mb2">
+			<input type="submit" value="ゲームを見る" />
+		</p>
+	</form>
 -->
-<?php echo $this->Html->link('スコアを登録する','/NewGameScore'); ?>
-<?php echo " "; ?>
+	<form method="post" action="/ScoreBoard/NewGameScore">
+		<p class="mb2">
+			<input type="submit" value="スコアを登録する" />
+		</p>
+	</form>
 <!--
-<?php echo $this->Html->link('スコアを見る','/GameScoreReference'); ?>
-<?php echo " "; ?>
+	<form method="post" action="/GameScoreReference">
+		<p class="mb2">
+			<input type="submit" value="スコアを見る" />
+		</p>
+	</form>
 -->
-<?php echo $this->Html->link('メンバーを追加する','/NewMember'); ?>
-<?php echo " "; ?>
+	<form method="post" action="/ScoreBoard/NewMember">
+		<p class="mb2">
+			<input type="submit" value="メンバーを追加する" />
+		</p>
+	</form>
 <!--
-<?php echo $this->Html->link('メンバーを見る','/MemberReference'); ?>
-<?php echo " "; ?>
+	<form method="post" action="/MemberReference">
+		<p class="mb2">
+			<input type="submit" value="メンバーを見る" />
+		</p>
+	</form>
 -->
+	<form method="post" action="/ScoreBoard/Logout">
+		<p class="mb2">
+			<input type="submit" value="ログアウト" />
+		</p>
+	</form>
+</div>
 <p class="padding11"></p>
 <h3>日時：<?php echo $recentlyGameDate; ?></h3>
 <p class="padding11"></p>

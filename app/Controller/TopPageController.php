@@ -1,9 +1,13 @@
 <?php 
-// app/Controller/ScoreboardController.php
+// app/Controller/TopPageController.php
 class TopPageController extends AppController {
 	
 	public function index(){
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+
+		$judgeIsLoginedAction = new judgeIsLogined();
 
 		include '../Model/searchScoreByDay.php';
 
@@ -32,10 +36,7 @@ class TopPageController extends AppController {
 		$getGameCount = $_SESSION['gameCount'];
 		for($i = 1; $i <= $getGameCount; $i++){
 			for($j = 1; $j <= $getEntry; $j++){
-//				$getScore[$i][$j] = $_SESSION['recentlyScore'][$i][$j];
 				$getScore[$i][$j] = isset($_SESSION['recentlyScore'][$i][$j])	? $_SESSION['recentlyScore'][$i][$j] :null;
-				// $this->set('score'[$i][$j],$getScore[$i][$j]);
-//				var_dump($getScore[$i][$j]);
 				
 			}
 		}
