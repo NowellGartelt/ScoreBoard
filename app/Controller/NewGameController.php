@@ -3,9 +3,13 @@
 class NewGameController extends AppController {
 	
 	public function index(){
-		// 新規ゲーム登録ページ
-		// ゲームタイトル、メモを入力
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
+
+//		var_dump($judgeIsLoginedAction);
 
 		$_SESSION['errorFlag'] = false;
 		$_SESSION['isRegistFlag'] = false;
@@ -16,6 +20,10 @@ class NewGameController extends AppController {
 	
 	public function NewGameRegist(){
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
 
 		include '../Model/searchGameByName.php';
 		include '../Model/registGameTitle.php';

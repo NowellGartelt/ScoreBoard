@@ -7,11 +7,19 @@ class NewMemberController extends AppController {
 		// メンバー情報を入力する
 		session_start();
 
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
+
 		$this -> render('index');
 	}
 	
 	public function MemberRegist(){
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
 
 		include '../Model/searchMemberByName.php';
 		include '../Model/registMember.php';

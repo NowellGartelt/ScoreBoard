@@ -6,8 +6,8 @@ class TopPageController extends AppController {
 		session_start();
 
 		include 'tools/judgeIsLogined.php';
-
 		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
 
 		include '../Model/searchScoreByDay.php';
 

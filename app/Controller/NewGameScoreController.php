@@ -1,14 +1,18 @@
 <?php 
 // app/Controller/NewGameScoreController.php
 class NewGameScoreController extends AppController {
+	
 	public function index(){
 		// 新規ゲームスコア登録ページ
 		// 登録済みゲームタイトルを取得
 		// チェックボックスで参加メンバーを選択
 		session_start();
 
-		include 'tools/getInputScoreInfo.php';
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
 
+		include 'tools/getInputScoreInfo.php';
 		$getInputScoreTnfoAction = new getInputScoreInfo();
 
 		$displayYear = $_SESSION['displayYear'];
@@ -29,6 +33,11 @@ class NewGameScoreController extends AppController {
 	public function MemberScoreRegist(){
 		// 参加メンバーを選択
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
+
 
 		include '../Model/searchMemberByID.php';
 		include 'tools/getInputScoreInfo.php';
@@ -87,6 +96,11 @@ class NewGameScoreController extends AppController {
 	public function ScoreRegist(){
 		// 参加メンバーを選択
 		session_start();
+
+		include 'tools/judgeIsLogined.php';
+		$judgeIsLoginedAction = new judgeIsLogined();
+		echo $judgeIsLoginedAction;
+
 
 		include '../Model/registScore.php';
 		include '../Model/registGame.php';
