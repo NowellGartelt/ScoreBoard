@@ -10,7 +10,6 @@ class NewGameScoreController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
 
 		include 'tools/getInputScoreInfo.php';
 		$getInputScoreTnfoAction = new getInputScoreInfo();
@@ -36,11 +35,10 @@ class NewGameScoreController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
-
 
 		include '../Model/searchMemberByID.php';
 		include 'tools/getInputScoreInfo.php';
+		include '../Model/searchGameByGameId.php';
 
 		$_SESSION['year_NewScore'] = $_POST['year'];
 		$_SESSION['month_NewScore'] = $_POST['month'];
@@ -48,12 +46,18 @@ class NewGameScoreController extends AppController {
 		$_SESSION['gameno_NewScore'] = $_POST['gameno'];
 		$_SESSION['gametitle_NewScore'] = $_POST['gametitle'];
 
-		$member = isset($_POST['member'])	? $_POST['member']	: null;
+		$member = $_POST['member'] ?? '';
+		$gameID = $_SESSION['year_NewScore'].$_SESSION['month_NewScore'].$_SESSION['day_NewScore'].$_SESSION['gameno_NewScore'];
+		$isGameSearchAction = new searchGameByGameId($gameID);
 
-		if ($member == null) {
-			$_SESSION['errorFlag'] = true;
+		if ($member == '' || $isGameSearchAction !== '') {
+			if ($member == '') {
+				$_SESSION['errorFlag'] = true;
+			} elseif ($isGameSearchAction !== '') {
+				$_SESSION['isRegistFlag'] = true;
+			}
 
-			$getInputScoreTnfoAction = new getInputScoreInfo();
+			$getInputScoreInfoAction = new getInputScoreInfo();
 
 			$displayYear = $_SESSION['displayYear'];
 			$todayMonth = $_SESSION['todayMonth'];
@@ -82,7 +86,6 @@ class NewGameScoreController extends AppController {
 				$countMember++;
 			}
 
-			$gameid = $_SESSION['year_NewScore'].$_SESSION['month_NewScore'].$_SESSION['day_NewScore'].$_SESSION['gameno_NewScore'];
 			$_SESSION['gameid'] = $gameid;
 
 			$this->set('entryMember',$entryMember);
@@ -99,7 +102,6 @@ class NewGameScoreController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
 
 
 		include '../Model/registScore.php';
@@ -112,8 +114,6 @@ class NewGameScoreController extends AppController {
 		$userId = 0;
 		$gameTitleId = 0;
 		
-		var_dump($gameTitle);
-
 		if($gameTitle === "スクールアイドル大作戦"){
 			$gameTitleId = 1;
 		} elseif($gameTitle === "スクールアイドルコレクション") {

@@ -9,7 +9,6 @@ class NewMemberController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
 
 		$this -> render('index');
 	}
@@ -19,19 +18,19 @@ class NewMemberController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
 
 		include '../Model/searchMemberByName.php';
 		include '../Model/registMember.php';
 		
-		$name = isset($_POST['name'])			? $_POST['name']		: null;
-		$password = isset($_POST['password'])	? $_POST['password']	: null;
+		$name = $_POST['name'] ?? '';
+		$userID = $_POST['userID'] ?? '';
+		$password = $_POST['password'] ?? '';
 		$admin = isset($_POST['isAdmin'])		? 1						: 0;
 		
 		$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 		$password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
 		
-		if($name == null || $password == null){
+		if($name == '' || $userID == '' || $password == ''){
 			$_SESSION['errorFlag'] = true;
 			
 		} else {

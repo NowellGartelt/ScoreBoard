@@ -27,9 +27,9 @@ class registGameTitle{
 		$resultRegist = mysqli_query($link, $queryRegist);
 		
 		if($resultRegist == false){
-			$_SESSION['isRegistFlag_NewGame'] = true;
+			$_SESSION['isRegistFlag'] = true;
 		} else {
-			$_SESSION['registResult_NewGame'] = true;
+			$_SESSION['registResult'] = true;
 		}
 		
 		return $resultRegist;

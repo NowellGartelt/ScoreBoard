@@ -40,6 +40,12 @@ class LoginController extends AppController {
 			} else {
 				$_SESSION['login'] = 'login';
 
+				$_SESSION['entry'] = null;
+				$_SESSION['entryMember'] = null;
+				$_SESSION['errorFlag'] = null;
+				$_SESSION['isRegistFlag'] = null;
+				$_SESSION['registResult'] = null;
+
 				$getScoreAction = new searchScoreByDay();
 				$getRecentlyGameDate = $_SESSION['recentlyDate'];
 				$this->set('recentlyGameDate',$getRecentlyGameDate);

@@ -15,8 +15,12 @@
 		<input type ="text" name="name" value="" size="10" />
 	</p>
 	<p class="mb2">
+		<h3>ID</h3>
+		<input type ="text" name="userID" value="" size="10" />
+	</p>
+	<p class="mb2">
 		<h3>パスワード</h3>
-		<input type ="text" name="password" value="" size="10" />
+		<input type ="password" name="password" value="" size="10" />
 	</p>
 	<p class="mb2">
 		<h3>管理者フラグ</h3>

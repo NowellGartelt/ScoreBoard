@@ -14,7 +14,7 @@
 	</p>
 	<p class="mb2">
 		<h3>パスワード</h3>
-		<input type ="text" name="loginPassword" value="" size="10" />
+		<input type ="password" name="loginPassword" value="" size="10" />
 	</p>
 	<p class="padding11"></p>
 	<p class="mb2">

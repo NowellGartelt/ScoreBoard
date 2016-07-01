@@ -24,9 +24,9 @@ class registGame{
 
 		$resultRegist = mysqli_query($link, $queryRegist);
 		if($resultRegist === false){
-			$_SESSION['isRegistFlag_NewScore'] = true;
+			$_SESSION['isRegistFlag'] = true;
 		} else {
-			$_SESSION['registResult_NewScore'] = true;
+			$_SESSION['registResult'] = true;
 		}
 		
 		return $resultRegist;

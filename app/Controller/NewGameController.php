@@ -7,9 +7,6 @@ class NewGameController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
-
-//		var_dump($judgeIsLoginedAction);
 
 		$_SESSION['errorFlag'] = false;
 		$_SESSION['isRegistFlag'] = false;
@@ -23,7 +20,6 @@ class NewGameController extends AppController {
 
 		include 'tools/judgeIsLogined.php';
 		$judgeIsLoginedAction = new judgeIsLogined();
-		echo $judgeIsLoginedAction;
 
 		include '../Model/searchGameByName.php';
 		include '../Model/registGameTitle.php';

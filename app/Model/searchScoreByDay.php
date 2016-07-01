@@ -42,8 +42,6 @@ class searchScoreByDay{
 			
 			$isGameSearchAction = new searchGameByGameId($getGameId);
 
-//			var_dump($isGameSearchAction);
-
 			if($isGameSearchAction !== null){
 				$getGameTitleAction = new searchTitleByGameId($getGameId);
 
