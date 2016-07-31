@@ -11,6 +11,8 @@ class searchGameByGameId{
 		$row = mysqli_fetch_array($result);
 		$isGame = $row[0];
 
+		$_SESSION['getGameID'] = $isGame;
+
 		return $isGame;
 	}
 }

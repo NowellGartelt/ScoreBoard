@@ -2,9 +2,9 @@
 <p class="padding11"></p>
 <?php if($_SESSION['errorFlag'] == true){ ?>
 	<font size="4" color="#ff0000">名前もしくはパスワードが未入力です。</font>
-<?php } elseif($_SESSION['isRegistFlag'] == true && $_SESSION['registResult'] == false){ ?>
+<?php } elseif($_SESSION['isRegistFlag'] == true){ ?>
 	<font size="4" color="#ff0000">入力された名前は登録済みです。</font>
-<?php } elseif($_SESSION['isRegistFlag'] == false && $_SESSION['registResult'] == true){ ?>
+<?php } elseif($_SESSION['registResult'] == true){ ?>
 	<font size="4" color="#ff0000">登録しました。</font>
 <?php } else {?>
 	<p class="padding5"></p>

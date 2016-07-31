@@ -28,6 +28,7 @@ class NewMemberController extends AppController {
 		$admin = isset($_POST['isAdmin'])		? 1						: 0;
 		
 		$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+		$userID = htmlspecialchars($userID, ENT_QUOTES, 'UTF-8');
 		$password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
 		
 		if($name == '' || $userID == '' || $password == ''){
@@ -35,12 +36,14 @@ class NewMemberController extends AppController {
 			
 		} else {
 			$isRegist = new searchMemberByName($name);
+			$getUserName = $_SESSION['getUserName'];
 
-			if($isRegist == false){
+			if($getUserName !== null){
 				$_SESSION['isRegistFlag'] = true;
-				
+
 			} else {
-				$memberRegistAction = new registMember($name, $password, $admin);
+				$memberRegistAction = new registMember($name, $userID, $password, $admin);
+				echo 'maka';
 				
 			}
 		}

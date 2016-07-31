@@ -11,13 +11,10 @@ class searchMemberByName{
 		$query = "select name from usertable where name = '$username'";
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_array($result);
-		$getName = $row[0];
+		$getUserName = $row[0];
+
+		$_SESSION['getUserName'] = $getUserName;
 		
-		if($getName === null){
-			return true;
-		} else {
-			return false;
-		}
 		mysqli_close($link);
 	}
 }

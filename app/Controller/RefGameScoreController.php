@@ -1,11 +1,10 @@
 <?php 
-// app/Controller/NewGameScoreController.php
-class NewGameScoreController extends AppController {
+// app/Controller/RefGameScoreController.php
+class RefGameScoreController extends AppController {
 	
 	public function index(){
-		// 新規ゲームスコア登録ページ
-		// 登録済みゲームタイトルを取得
-		// チェックボックスで参加メンバーを選択
+		// ゲームスコア参照ページ
+		// ゲーム開催日の一覧を表示する。
 		session_start();
 
 		include 'tools/judgeIsLogined.php';
@@ -50,12 +49,10 @@ class NewGameScoreController extends AppController {
 		$gameID = $_SESSION['year_NewScore'].$_SESSION['month_NewScore'].$_SESSION['day_NewScore'].$_SESSION['gameno_NewScore'];
 		$isGameSearchAction = new searchGameByGameId($gameID);
 
-		$getGameID = $_SESSION['getGameID'];
-
-		if ($member == '' || $getGameID !== null) {
+		if ($member == '' || $isGameSearchAction !== '') {
 			if ($member == '') {
 				$_SESSION['errorFlag'] = true;
-			} elseif ($getGameID !== null) {
+			} elseif ($isGameSearchAction !== '') {
 				$_SESSION['isRegistFlag'] = true;
 			}
 
@@ -88,7 +85,7 @@ class NewGameScoreController extends AppController {
 				$countMember++;
 			}
 
-			$_SESSION['gameid'] = $gameID;
+			$_SESSION['gameid'] = $gameid;
 
 			$this->set('entryMember',$entryMember);
 			$this->set('entryMemberName',$entryMemberName);
@@ -116,9 +113,9 @@ class NewGameScoreController extends AppController {
 		$userId = 0;
 		$gameTitleId = 0;
 		
-		if($gameTitle == "ラブライブ！ボードゲーム"){
+		if($gameTitle === "スクールアイドル大作戦"){
 			$gameTitleId = 1;
-		} elseif($gameTitle == "ラブライブ！スクコレ") {
+		} elseif($gameTitle === "スクールアイドルコレクション") {
 			$gameTitleId = 2;
 		}
 		

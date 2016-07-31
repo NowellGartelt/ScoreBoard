@@ -1,8 +1,9 @@
 <!-- /app/Model/registMember.php-->
 <?php
 class registMember{
-	public function	registMember($username, $password, $admin){
+	public function	registMember($username, $loginID, $password, $admin){
 		$this->username = $username;
+		$this->loginID = $loginID;		
 		$this->password = $password;
 		$this->admin = $admin;
 
@@ -14,11 +15,12 @@ class registMember{
 		$getId = $row[0];
 		$userId = $getId + 1;
 		
-		$addDate = date("YmdHis");
+		$addDate = date("Y-m-d H:i:s");
 		
-		$query_add = "insert into usertable (userid, password, name, adddate, updatedate, isAdmin) 
+		$query_add = "insert into usertable (userid, loginId, loginPassword, name, adddate, updatedate, isAdmin) 
 						values (
 							'$userId',
+							'$loginID',
 							'$password',
 							'$username',
 							'$addDate',
@@ -27,10 +29,15 @@ class registMember{
 						)";
 
 		$result_add = mysqli_query($link, $query_add);
-		if($result_add === false){
+
+		var_dump($result_add);
+
+		if($result_add == false){
 			$_SESSION['isRegistFlag'] = true;
+
 		} else {
 			$_SESSION['registResult'] = true;
+
 		}
 		
 		return $result_add;
